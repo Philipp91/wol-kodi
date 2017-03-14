@@ -44,11 +44,11 @@ def main():
         elif distro.lower() == 'debian':
             p = subprocess.Popen(["ps", "aux"], stdout=subprocess.PIPE)
             out, err = p.communicate()
-            if "kodi.bin" in out:
+            if "kodi.bin" in str(out):
                 logger.info("kodi is already running. Nothing to do")
             else:
                 logger.info("Starting kodi (Debian)...")
-                subprocess.Popen(["/usr/bin/kodi"], stdout=subprocess.PIPE)
+                subprocess.Popen(["/usr/bin/kodi"])
                 logger.info("kodi has been started :-)")
 
 
